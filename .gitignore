@@ -128,3 +128,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# mlruns
+# model_registry_artifacts
+# model_signature_artifacts
+# model_signature_artifacts
+# testing_mlflow1_artifacts
