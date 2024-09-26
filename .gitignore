@@ -130,7 +130,10 @@ dmypy.json
 .pyre/
 
 mlruns
+hyperopt_mlflow_artifacts
 model_registry_artifacts
 model_signature_artifacts
 model_signature_artifacts
 testing_mlflow1_artifacts
+dist
+package.egg-info
