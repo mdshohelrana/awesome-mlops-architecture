@@ -8,7 +8,7 @@ if __name__=="__main__":
 
     with mlflow.start_run(run_name="logging_metrics", experiment_id = experiment.experiment_id) as run:
         # Your machine learning code goes here
-
+        
         mlflow.log_metric("random_metric", 0.01)
 
         metrics = {
