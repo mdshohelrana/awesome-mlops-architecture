@@ -3,7 +3,6 @@ from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.svm import SVR
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.decomposition import PCA
 from sklearn.metrics import mean_squared_error, r2_score
 from joblib import dump
 
@@ -32,33 +31,29 @@ def split(data):
     
     return train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Train the SVR model using GridSearchCV with an expanded pipeline
+# Train the SVR model using GridSearchCV with a reduced pipeline and parameter grid
 def train(X_train, y_train):
     print("Setting up pipeline and performing GridSearchCV...")
 
-    # Dynamically set n_components based on the number of features
-    n_components = min(X_train.shape[1], 5)  # Set n_components to min(available features, 5)
-
-    # Set up the pipeline with preprocessing and the SVR model
+    # Set up the pipeline with scaling and SVR
     pipeline = Pipeline([
         ('scaler', StandardScaler()),  # Add scaling
-        ('pca', PCA(n_components=n_components)),  # Dynamic PCA
         ('svr', SVR())  # SVR for regression
     ])
 
-    # Refined hyperparameter grid for GridSearchCV
+    # Reduced hyperparameter grid for GridSearchCV
     param_grid = {
-        'svr__C': [0.1, 1, 10, 100],  # Regularization parameter
-        'svr__kernel': ['rbf', 'linear'],  # Focusing on rbf and linear kernels (more applicable to SVR)
+        'svr__C': [0.1, 1, 10],  # Reduced range for Regularization parameter
+        'svr__kernel': ['rbf', 'linear'],  # Focusing on rbf and linear kernels
         'svr__gamma': ['scale', 'auto'],  # Kernel coefficient
-        'svr__epsilon': [0.01, 0.1, 0.5],  # Epsilon-tube for training loss
+        'svr__epsilon': [0.01, 0.1],  # Epsilon-tube for training loss
     }
 
-    # Set up GridSearchCV
+    # Set up GridSearchCV with reduced search space and folds
     grid_search = GridSearchCV(
         pipeline,
         param_grid,
-        cv=5,  # Cross-validation folds
+        cv=3,  # Reduced cross-validation folds
         scoring='r2',  # Scoring method: R-squared
         n_jobs=-1,  # Use all available cores for faster computation
         verbose=3  # Show detailed training progress
