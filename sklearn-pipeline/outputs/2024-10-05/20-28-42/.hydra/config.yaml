@@ -1,0 +1,29 @@
+pipeline:
+  steps:
+  - name: ingest
+    class: __main__.TradingPipeline.ingest
+  - name: split
+    class: __main__.TradingPipeline.split
+  - name: transform
+    class: __main__.TradingPipeline.transform
+  - name: train
+    class: __main__.TradingPipeline.train
+  - name: evaluate
+    class: __main__.TradingPipeline.evaluate
+  - name: register
+    class: __main__.TradingPipeline.register
+param_grid:
+  svc__C:
+  - 1
+  - 10
+  svc__kernel:
+  - rbf
+  - linear
+grid_search:
+  cv: 5
+  scoring: accuracy
+data:
+  file_path: data/5m_intraday_data.csv
+  train_test_split:
+    test_size: 0.2
+    random_state: 42

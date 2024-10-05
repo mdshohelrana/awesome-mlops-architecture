@@ -1,0 +1,23 @@
+pipeline:
+  steps:
+  - name: ingest
+  - name: split
+  - name: transform
+  - name: train
+  - name: evaluate
+  - name: register
+param_grid:
+  svc__C:
+  - 1
+  - 10
+  svc__kernel:
+  - rbf
+  - linear
+grid_search:
+  cv: 5
+  scoring: accuracy
+data:
+  file_path: data/5m_intraday_data.csv
+  train_test_split:
+    test_size: 0.2
+    random_state: 42
