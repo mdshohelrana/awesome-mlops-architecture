@@ -137,3 +137,4 @@ model_signature_artifacts
 testing_mlflow1_artifacts
 dist
 package.egg-info
+.DS_Store
