@@ -1,0 +1,27 @@
+artifact_path: train/estimator
+flavors:
+  python_function:
+    code: code
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.15
+  sklearn:
+    code: code
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.1
+mlflow_version: 2.14.3
+model_size_bytes: 974169
+model_uuid: 00668cb55b8c4bef82799be08603764c
+run_id: 5075fa75e6dc484a9b84165b6bdfa0d4
+signature:
+  inputs: '[{"type": "double", "name": "Open", "required": true}, {"type": "double",
+    "name": "High", "required": true}, {"type": "double", "name": "Low", "required":
+    true}, {"type": "double", "name": "Volume", "required": true}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+  params: null
+utc_time_created: '2024-10-06 16:13:32.274120'

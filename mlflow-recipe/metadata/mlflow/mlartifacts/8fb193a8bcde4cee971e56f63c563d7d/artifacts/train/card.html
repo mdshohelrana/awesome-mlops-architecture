@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Train@trading-ml-flow</title>
+        <style>
+            h1.title {
+            color: #4287f5;
+            }
+            h2.step-title {
+                color : #4287f5;
+            }
+            .tab {
+                overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;
+            }
+
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+            .tabcontent {
+                display: block;
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+
+            .content-hide {
+                display: none;
+            }
+
+            .content-active {
+                display: block;
+            }
+            h3.section-title {
+                color: #57a8de;
+            }
+            .dataset-container {
+                width: max;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .stacktrace-container {
+                max-height: 300px;
+                overflow: auto;
+                display: flex;
+                flex-direction: column-reverse;
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+   <body>
+        <div class="tab">
+            <div class="button-container-4d6it0">
+                
+                    <button id=0 class="tablink-4d6it0">
+                        Model Performance
+                    </button>
+                
+                    <button id=1 class="tablink-4d6it0">
+                        Data Profile (Predictions)
+                    </button>
+                
+                    <button id=2 class="tablink-4d6it0">
+                        Model Architecture
+                    </button>
+                
+                    <button id=3 class="tablink-4d6it0">
+                        Model Schema
+                    </button>
+                
+                    <button id=4 class="tablink-4d6it0">
+                        Worst Predictions
+                    </button>
+                
+                    <button id=5 class="tablink-4d6it0">
+                        Data Profile (Worst vs Train)
+                    </button>
+                
+                    <button id=6 class="tablink-4d6it0">
+                        Leaderboard
+                    </button>
+                
+                    <button id=7 class="tablink-4d6it0">
+                        Best Parameters 
+                    </button>
+                
+                    <button id=8 class="tablink-4d6it0">
+                        Warning Logs
+                    </button>
+                
+                    <button id=9 class="tablink-4d6it0">
+                        Run Summary
+                    </button>
+                
+            </div>
+        </div>
+        <div class="tabcontent">
+            
+                <div class="content-4d6it0 content-hide"><h3 class='section-title'>Summary Metrics (Validation)</h3><div style="max-height: 500px; overflow: scroll;"><style type="text/css">
+#T_4d8cd table {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_4d8cd  th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_4d8cd  td {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_4d8cd_row0_col0, #T_4d8cd_row0_col1, #T_4d8cd_row0_col2 {
+  font-weight: bold;
+}
+</style>
+<table id="T_4d8cd" style="border-collapse:collapse">
+  <thead>
+    <tr>
+      <th id="T_4d8cd_level0_col0" class="col_heading level0 col0" >Metric</th>
+      <th id="T_4d8cd_level0_col1" class="col_heading level0 col1" >training</th>
+      <th id="T_4d8cd_level0_col2" class="col_heading level0 col2" >validation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_4d8cd_row0_col0" class="data row0 col0" >f1_score</td>
+      <td id="T_4d8cd_row0_col1" class="data row0 col1" >0.969648</td>
+      <td id="T_4d8cd_row0_col2" class="data row0 col2" >0.97236</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row1_col0" class="data row1 col0" >accuracy_score</td>
+      <td id="T_4d8cd_row1_col1" class="data row1 col1" >0.968344</td>
+      <td id="T_4d8cd_row1_col2" class="data row1 col2" >0.971239</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row2_col0" class="data row2 col0" >example_count</td>
+      <td id="T_4d8cd_row2_col1" class="data row2 col1" >23850</td>
+      <td id="T_4d8cd_row2_col2" class="data row2 col2" >4068</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row3_col0" class="data row3 col0" >false_negatives</td>
+      <td id="T_4d8cd_row3_col1" class="data row3 col1" >136</td>
+      <td id="T_4d8cd_row3_col2" class="data row3 col2" >17</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row4_col0" class="data row4 col0" >false_positives</td>
+      <td id="T_4d8cd_row4_col1" class="data row4 col1" >619</td>
+      <td id="T_4d8cd_row4_col2" class="data row4 col2" >100</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row5_col0" class="data row5 col0" >log_loss</td>
+      <td id="T_4d8cd_row5_col1" class="data row5 col1" >0.16383</td>
+      <td id="T_4d8cd_row5_col2" class="data row5 col2" >0.163678</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row6_col0" class="data row6 col0" >precision_recall_auc</td>
+      <td id="T_4d8cd_row6_col1" class="data row6 col1" >0.987993</td>
+      <td id="T_4d8cd_row6_col2" class="data row6 col2" >0.988258</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row7_col0" class="data row7 col0" >precision_score</td>
+      <td id="T_4d8cd_row7_col1" class="data row7 col1" >0.951179</td>
+      <td id="T_4d8cd_row7_col2" class="data row7 col2" >0.953661</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row8_col0" class="data row8 col0" >recall_score</td>
+      <td id="T_4d8cd_row8_col1" class="data row8 col1" >0.988849</td>
+      <td id="T_4d8cd_row8_col2" class="data row8 col2" >0.991807</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row9_col0" class="data row9 col0" >roc_auc</td>
+      <td id="T_4d8cd_row9_col1" class="data row9 col1" >0.991857</td>
+      <td id="T_4d8cd_row9_col2" class="data row9 col2" >0.99241</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row10_col0" class="data row10 col0" >true_negatives</td>
+      <td id="T_4d8cd_row10_col1" class="data row10 col1" >11035</td>
+      <td id="T_4d8cd_row10_col2" class="data row10 col2" >1893</td>
+    </tr>
+    <tr>
+      <td id="T_4d8cd_row11_col0" class="data row11 col0" >true_positives</td>
+      <td id="T_4d8cd_row11_col1" class="data row11 col1" >12060</td>
+      <td id="T_4d8cd_row11_col2" class="data row11 col2" >2058</td>
+    </tr>
+  </tbody>
+</table>
+</div> </div>
+            
+                <div class="content-4d6it0 content-hide"><iframe srcdoc='
+        &lt;div style=&quot;background-color: white&quot;&gt;
+        &lt;script&gt;
+!function() {
+  let t = window.URL;
+  window.URL = function(n, e) {
+    if (typeof e === &quot;string&quot; &amp;&amp; e.startsWith(&quot;blob:&quot;)) {
+      return new URL(e);
+    } else {
+      return new t(n, e);
+    }
+  }
+}();
+&lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.3.3/webcomponents-lite.js&quot;&gt;&lt;/script&gt;
+        &lt;link rel=&quot;import&quot; href=&quot;https://raw.githubusercontent.com/PAIR-code/facets/1.0.0/facets-dist/facets-jupyter.html&quot; &gt;
+        &lt;facets-overview id=&quot;facets&quot; proto-input=&quot;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&quot; compare-mode=&quot;True&quot;&gt;&lt;/facets-overview&gt;
+        &lt;/div&gt;
+    ' width='100%' height='500' frameborder='0'></iframe></div>
+            
+                <div class="content-4d6it0 content-hide"><style>#sk-container-id-2 {
+  /* Definition of color scheme common for light and dark mode */
+  --sklearn-color-text: black;
+  --sklearn-color-line: gray;
+  /* Definition of color scheme for unfitted estimators */
+  --sklearn-color-unfitted-level-0: #fff5e6;
+  --sklearn-color-unfitted-level-1: #f6e4d2;
+  --sklearn-color-unfitted-level-2: #ffe0b3;
+  --sklearn-color-unfitted-level-3: chocolate;
+  /* Definition of color scheme for fitted estimators */
+  --sklearn-color-fitted-level-0: #f0f8ff;
+  --sklearn-color-fitted-level-1: #d4ebff;
+  --sklearn-color-fitted-level-2: #b3dbfd;
+  --sklearn-color-fitted-level-3: cornflowerblue;
+
+  /* Specific color for light theme */
+  --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, white)));
+  --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, black)));
+  --sklearn-color-icon: #696969;
+
+  @media (prefers-color-scheme: dark) {
+    /* Redefinition of color scheme for dark theme */
+    --sklearn-color-text-on-default-background: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-background: var(--sg-background-color, var(--theme-background, var(--jp-layout-color0, #111)));
+    --sklearn-color-border-box: var(--sg-text-color, var(--theme-code-foreground, var(--jp-content-font-color1, white)));
+    --sklearn-color-icon: #878787;
+  }
+}
+
+#sk-container-id-2 {
+  color: var(--sklearn-color-text);
+}
+
+#sk-container-id-2 pre {
+  padding: 0;
+}
+
+#sk-container-id-2 input.sk-hidden--visually {
+  border: 0;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+#sk-container-id-2 div.sk-dashed-wrapped {
+  border: 1px dashed var(--sklearn-color-line);
+  margin: 0 0.4em 0.5em 0.4em;
+  box-sizing: border-box;
+  padding-bottom: 0.4em;
+  background-color: var(--sklearn-color-background);
+}
+
+#sk-container-id-2 div.sk-container {
+  /* jupyter's `normalize.less` sets `[hidden] { display: none; }`
+     but bootstrap.min.css set `[hidden] { display: none !important; }`
+     so we also need the `!important` here to be able to override the
+     default hidden behavior on the sphinx rendered scikit-learn.org.
+     See: https://github.com/scikit-learn/scikit-learn/issues/21755 */
+  display: inline-block !important;
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-text-repr-fallback {
+  display: none;
+}
+
+div.sk-parallel-item,
+div.sk-serial,
+div.sk-item {
+  /* draw centered vertical line to link estimators */
+  background-image: linear-gradient(var(--sklearn-color-text-on-default-background), var(--sklearn-color-text-on-default-background));
+  background-size: 2px 100%;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+/* Parallel-specific style estimator block */
+
+#sk-container-id-2 div.sk-parallel-item::after {
+  content: "";
+  width: 100%;
+  border-bottom: 2px solid var(--sklearn-color-text-on-default-background);
+  flex-grow: 1;
+}
+
+#sk-container-id-2 div.sk-parallel {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  background-color: var(--sklearn-color-background);
+  position: relative;
+}
+
+#sk-container-id-2 div.sk-parallel-item {
+  display: flex;
+  flex-direction: column;
+}
+
+#sk-container-id-2 div.sk-parallel-item:first-child::after {
+  align-self: flex-end;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:last-child::after {
+  align-self: flex-start;
+  width: 50%;
+}
+
+#sk-container-id-2 div.sk-parallel-item:only-child::after {
+  width: 0;
+}
+
+/* Serial-specific style estimator block */
+
+#sk-container-id-2 div.sk-serial {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--sklearn-color-background);
+  padding-right: 1em;
+  padding-left: 1em;
+}
+
+
+/* Toggleable style: style used for estimator/Pipeline/ColumnTransformer box that is
+clickable and can be expanded/collapsed.
+- Pipeline and ColumnTransformer use this feature and define the default style
+- Estimators will overwrite some part of the style using the `sk-estimator` class
+*/
+
+/* Pipeline and ColumnTransformer style (default) */
+
+#sk-container-id-2 div.sk-toggleable {
+  /* Default theme specific background. It is overwritten whether we have a
+  specific estimator or a Pipeline/ColumnTransformer */
+  background-color: var(--sklearn-color-background);
+}
+
+/* Toggleable label */
+#sk-container-id-2 label.sk-toggleable__label {
+  cursor: pointer;
+  display: block;
+  width: 100%;
+  margin-bottom: 0;
+  padding: 0.5em;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:before {
+  /* Arrow on the left of the label */
+  content: "▸";
+  float: left;
+  margin-right: 0.25em;
+  color: var(--sklearn-color-icon);
+}
+
+#sk-container-id-2 label.sk-toggleable__label-arrow:hover:before {
+  color: var(--sklearn-color-text);
+}
+
+/* Toggleable content - dropdown */
+
+#sk-container-id-2 div.sk-toggleable__content {
+  max-height: 0;
+  max-width: 0;
+  overflow: hidden;
+  text-align: left;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content pre {
+  margin: 0.2em;
+  border-radius: 0.25em;
+  color: var(--sklearn-color-text);
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-toggleable__content.fitted pre {
+  /* unfitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~div.sk-toggleable__content {
+  /* Expand drop-down */
+  max-height: 200px;
+  max-width: 100%;
+  overflow: auto;
+}
+
+#sk-container-id-2 input.sk-toggleable__control:checked~label.sk-toggleable__label-arrow:before {
+  content: "▾";
+}
+
+/* Pipeline/ColumnTransformer-specific style */
+
+#sk-container-id-2 div.sk-label input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator-specific style */
+
+/* Colorize estimator box */
+#sk-container-id-2 div.sk-estimator input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted input.sk-toggleable__control:checked~label.sk-toggleable__label {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+#sk-container-id-2 div.sk-label label.sk-toggleable__label,
+#sk-container-id-2 div.sk-label label {
+  /* The background is the default theme color */
+  color: var(--sklearn-color-text-on-default-background);
+}
+
+/* On hover, darken the color of the background */
+#sk-container-id-2 div.sk-label:hover label.sk-toggleable__label {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+/* Label box, darken color on hover, fitted */
+#sk-container-id-2 div.sk-label.fitted:hover label.sk-toggleable__label.fitted {
+  color: var(--sklearn-color-text);
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Estimator label */
+
+#sk-container-id-2 div.sk-label label {
+  font-family: monospace;
+  font-weight: bold;
+  display: inline-block;
+  line-height: 1.2em;
+}
+
+#sk-container-id-2 div.sk-label-container {
+  text-align: center;
+}
+
+/* Estimator-specific */
+#sk-container-id-2 div.sk-estimator {
+  font-family: monospace;
+  border: 1px dotted var(--sklearn-color-border-box);
+  border-radius: 0.25em;
+  box-sizing: border-box;
+  margin-bottom: 0.5em;
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-0);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-0);
+}
+
+/* on hover */
+#sk-container-id-2 div.sk-estimator:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-2);
+}
+
+#sk-container-id-2 div.sk-estimator.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-2);
+}
+
+/* Specification for estimator info (e.g. "i" and "?") */
+
+/* Common style for "i" and "?" */
+
+.sk-estimator-doc-link,
+a:link.sk-estimator-doc-link,
+a:visited.sk-estimator-doc-link {
+  float: right;
+  font-size: smaller;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1em;
+  height: 1em;
+  width: 1em;
+  text-decoration: none !important;
+  margin-left: 1ex;
+  /* unfitted */
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+  color: var(--sklearn-color-unfitted-level-1);
+}
+
+.sk-estimator-doc-link.fitted,
+a:link.sk-estimator-doc-link.fitted,
+a:visited.sk-estimator-doc-link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+div.sk-estimator:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover,
+div.sk-label-container:hover .sk-estimator-doc-link:hover,
+.sk-estimator-doc-link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+div.sk-estimator.fitted:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover,
+div.sk-label-container:hover .sk-estimator-doc-link.fitted:hover,
+.sk-estimator-doc-link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+/* Span, style for the box shown on hovering the info icon */
+.sk-estimator-doc-link span {
+  display: none;
+  z-index: 9999;
+  position: relative;
+  font-weight: normal;
+  right: .2ex;
+  padding: .5ex;
+  margin: .5ex;
+  width: min-content;
+  min-width: 20ex;
+  max-width: 50ex;
+  color: var(--sklearn-color-text);
+  box-shadow: 2pt 2pt 4pt #999;
+  /* unfitted */
+  background: var(--sklearn-color-unfitted-level-0);
+  border: .5pt solid var(--sklearn-color-unfitted-level-3);
+}
+
+.sk-estimator-doc-link.fitted span {
+  /* fitted */
+  background: var(--sklearn-color-fitted-level-0);
+  border: var(--sklearn-color-fitted-level-3);
+}
+
+.sk-estimator-doc-link:hover span {
+  display: block;
+}
+
+/* "?"-specific style due to the `<a>` HTML tag */
+
+#sk-container-id-2 a.estimator_doc_link {
+  float: right;
+  font-size: 1rem;
+  line-height: 1em;
+  font-family: monospace;
+  background-color: var(--sklearn-color-background);
+  border-radius: 1rem;
+  height: 1rem;
+  width: 1rem;
+  text-decoration: none;
+  /* unfitted */
+  color: var(--sklearn-color-unfitted-level-1);
+  border: var(--sklearn-color-unfitted-level-1) 1pt solid;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted {
+  /* fitted */
+  border: var(--sklearn-color-fitted-level-1) 1pt solid;
+  color: var(--sklearn-color-fitted-level-1);
+}
+
+/* On hover */
+#sk-container-id-2 a.estimator_doc_link:hover {
+  /* unfitted */
+  background-color: var(--sklearn-color-unfitted-level-3);
+  color: var(--sklearn-color-background);
+  text-decoration: none;
+}
+
+#sk-container-id-2 a.estimator_doc_link.fitted:hover {
+  /* fitted */
+  background-color: var(--sklearn-color-fitted-level-3);
+}
+</style><div id="sk-container-id-2" class="sk-top-container"><div class="sk-text-repr-fallback"><pre>Pipeline(steps=[(&#x27;datacleaner&#x27;, DataCleaner()),
+                (&#x27;gridsearchcv&#x27;,
+                 GridSearchCV(cv=5,
+                              estimator=Pipeline(steps=[(&#x27;scaler&#x27;,
+                                                         StandardScaler()),
+                                                        (&#x27;svc&#x27;,
+                                                         SVC(probability=True))]),
+                              n_jobs=-1,
+                              param_grid={&#x27;svc__C&#x27;: [0.2, 10],
+                                          &#x27;svc__kernel&#x27;: [&#x27;rbf&#x27;, &#x27;linear&#x27;]},
+                              scoring=&#x27;accuracy&#x27;))])</pre><b>In a Jupyter environment, please rerun this cell to show the HTML representation or trust the notebook. <br />On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.</b></div><div class="sk-container" hidden><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-5" type="checkbox" ><label for="sk-estimator-id-5" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;&nbsp;Pipeline<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.pipeline.Pipeline.html">?<span>Documentation for Pipeline</span></a><span class="sk-estimator-doc-link fitted">i<span>Fitted</span></span></label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;datacleaner&#x27;, DataCleaner()),
+                (&#x27;gridsearchcv&#x27;,
+                 GridSearchCV(cv=5,
+                              estimator=Pipeline(steps=[(&#x27;scaler&#x27;,
+                                                         StandardScaler()),
+                                                        (&#x27;svc&#x27;,
+                                                         SVC(probability=True))]),
+                              n_jobs=-1,
+                              param_grid={&#x27;svc__C&#x27;: [0.2, 10],
+                                          &#x27;svc__kernel&#x27;: [&#x27;rbf&#x27;, &#x27;linear&#x27;]},
+                              scoring=&#x27;accuracy&#x27;))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-6" type="checkbox" ><label for="sk-estimator-id-6" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">DataCleaner</label><div class="sk-toggleable__content fitted"><pre>DataCleaner()</pre></div> </div></div><div class="sk-item sk-dashed-wrapped"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-7" type="checkbox" ><label for="sk-estimator-id-7" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;gridsearchcv: GridSearchCV<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.model_selection.GridSearchCV.html">?<span>Documentation for gridsearchcv: GridSearchCV</span></a></label><div class="sk-toggleable__content fitted"><pre>GridSearchCV(cv=5,
+             estimator=Pipeline(steps=[(&#x27;scaler&#x27;, StandardScaler()),
+                                       (&#x27;svc&#x27;, SVC(probability=True))]),
+             n_jobs=-1,
+             param_grid={&#x27;svc__C&#x27;: [0.2, 10], &#x27;svc__kernel&#x27;: [&#x27;rbf&#x27;, &#x27;linear&#x27;]},
+             scoring=&#x27;accuracy&#x27;)</pre></div> </div></div><div class="sk-parallel"><div class="sk-parallel-item"><div class="sk-item"><div class="sk-label-container"><div class="sk-label fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-8" type="checkbox" ><label for="sk-estimator-id-8" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">best_estimator_: Pipeline</label><div class="sk-toggleable__content fitted"><pre>Pipeline(steps=[(&#x27;scaler&#x27;, StandardScaler()),
+                (&#x27;svc&#x27;, SVC(C=10, kernel=&#x27;linear&#x27;, probability=True))])</pre></div> </div></div><div class="sk-serial"><div class="sk-item"><div class="sk-serial"><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-9" type="checkbox" ><label for="sk-estimator-id-9" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;StandardScaler<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.preprocessing.StandardScaler.html">?<span>Documentation for StandardScaler</span></a></label><div class="sk-toggleable__content fitted"><pre>StandardScaler()</pre></div> </div></div><div class="sk-item"><div class="sk-estimator fitted sk-toggleable"><input class="sk-toggleable__control sk-hidden--visually" id="sk-estimator-id-10" type="checkbox" ><label for="sk-estimator-id-10" class="sk-toggleable__label fitted sk-toggleable__label-arrow fitted">&nbsp;SVC<a class="sk-estimator-doc-link fitted" rel="noreferrer" target="_blank" href="https://scikit-learn.org/1.5/modules/generated/sklearn.svm.SVC.html">?<span>Documentation for SVC</span></a></label><div class="sk-toggleable__content fitted"><pre>SVC(C=10, kernel=&#x27;linear&#x27;, probability=True)</pre></div> </div></div></div></div></div></div></div></div></div></div></div></div></div></div>
+            
+                <div class="content-4d6it0 content-hide"><div style="display: flex"><div style="margin: 5px"><h2>Inputs</h2><div style="max-height: 500px; overflow: scroll;"><style type="text/css">
+#T_9bf06 table {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_9bf06  th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_9bf06  td {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+</style>
+<table id="T_9bf06" style="border-collapse:collapse">
+  <thead>
+    <tr>
+      <th id="T_9bf06_level0_col0" class="col_heading level0 col0" >Name</th>
+      <th id="T_9bf06_level0_col1" class="col_heading level0 col1" >Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_9bf06_row0_col0" class="data row0 col0" >  Timestamp</td>
+      <td id="T_9bf06_row0_col1" class="data row0 col1" >long</td>
+    </tr>
+    <tr>
+      <td id="T_9bf06_row1_col0" class="data row1 col0" >  Gmtoffset</td>
+      <td id="T_9bf06_row1_col1" class="data row1 col1" >long</td>
+    </tr>
+    <tr>
+      <td id="T_9bf06_row2_col0" class="data row2 col0" >  Datetime</td>
+      <td id="T_9bf06_row2_col1" class="data row2 col1" >string</td>
+    </tr>
+    <tr>
+      <td id="T_9bf06_row3_col0" class="data row3 col0" >  Open</td>
+      <td id="T_9bf06_row3_col1" class="data row3 col1" >double</td>
+    </tr>
+    <tr>
+      <td id="T_9bf06_row4_col0" class="data row4 col0" >  High</td>
+      <td id="T_9bf06_row4_col1" class="data row4 col1" >double</td>
+    </tr>
+    <tr>
+      <td id="T_9bf06_row5_col0" class="data row5 col0" >  Low</td>
+      <td id="T_9bf06_row5_col1" class="data row5 col1" >double</td>
+    </tr>
+    <tr>
+      <td id="T_9bf06_row6_col0" class="data row6 col0" >  Close</td>
+      <td id="T_9bf06_row6_col1" class="data row6 col1" >double</td>
+    </tr>
+    <tr>
+      <td id="T_9bf06_row7_col0" class="data row7 col0" >  Volume</td>
+      <td id="T_9bf06_row7_col1" class="data row7 col1" >double</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+<div style="margin: 5px"><h2>Outputs</h2><div style="max-height: 500px; overflow: scroll;"><style type="text/css">
+#T_5ffe7 table {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_5ffe7  th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_5ffe7  td {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+</style>
+<table id="T_5ffe7" style="border-collapse:collapse">
+  <thead>
+    <tr>
+      <th id="T_5ffe7_level0_col0" class="col_heading level0 col0" >Name</th>
+      <th id="T_5ffe7_level0_col1" class="col_heading level0 col1" >Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_5ffe7_row0_col0" class="data row0 col0" >  predicted_score_0</td>
+      <td id="T_5ffe7_row0_col1" class="data row0 col1" >double</td>
+    </tr>
+    <tr>
+      <td id="T_5ffe7_row1_col0" class="data row1 col0" >  predicted_score_1</td>
+      <td id="T_5ffe7_row1_col1" class="data row1 col1" >double</td>
+    </tr>
+    <tr>
+      <td id="T_5ffe7_row2_col0" class="data row2 col0" >  predicted_score</td>
+      <td id="T_5ffe7_row2_col1" class="data row2 col1" >double</td>
+    </tr>
+    <tr>
+      <td id="T_5ffe7_row3_col0" class="data row3 col0" >  predicted_label</td>
+      <td id="T_5ffe7_row3_col1" class="data row3 col1" >integer</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div></div>
+            
+                <div class="content-4d6it0 content-hide"><div style="max-height: 500px; overflow: scroll;"><style type="text/css">
+#T_588cb table {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_588cb  th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_588cb  td {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+</style>
+<table id="T_588cb" style="border-collapse:collapse">
+  <thead>
+    <tr>
+      <th id="T_588cb_level0_col0" class="col_heading level0 col0" >absolute_error</th>
+      <th id="T_588cb_level0_col1" class="col_heading level0 col1" >prediction</th>
+      <th id="T_588cb_level0_col2" class="col_heading level0 col2" >Price_Change</th>
+      <th id="T_588cb_level0_col3" class="col_heading level0 col3" >Timestamp</th>
+      <th id="T_588cb_level0_col4" class="col_heading level0 col4" >Gmtoffset</th>
+      <th id="T_588cb_level0_col5" class="col_heading level0 col5" >Datetime</th>
+      <th id="T_588cb_level0_col6" class="col_heading level0 col6" >Open</th>
+      <th id="T_588cb_level0_col7" class="col_heading level0 col7" >High</th>
+      <th id="T_588cb_level0_col8" class="col_heading level0 col8" >Low</th>
+      <th id="T_588cb_level0_col9" class="col_heading level0 col9" >Close</th>
+      <th id="T_588cb_level0_col10" class="col_heading level0 col10" >Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_588cb_row0_col0" class="data row0 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row0_col1" class="data row0 col1" >1</td>
+      <td id="T_588cb_row0_col2" class="data row0 col2" >0</td>
+      <td id="T_588cb_row0_col3" class="data row0 col3" >1682515800</td>
+      <td id="T_588cb_row0_col4" class="data row0 col4" >0</td>
+      <td id="T_588cb_row0_col5" class="data row0 col5" >2023-04-26 13:30:00</td>
+      <td id="T_588cb_row0_col6" class="data row0 col6" >163.054992</td>
+      <td id="T_588cb_row0_col7" class="data row0 col7" >164.11</td>
+      <td id="T_588cb_row0_col8" class="data row0 col8" >162.800003</td>
+      <td id="T_588cb_row0_col9" class="data row0 col9" >163.580001</td>
+      <td id="T_588cb_row0_col10" class="data row0 col10" >3661385.0</td>
+    </tr>
+    <tr>
+      <td id="T_588cb_row1_col0" class="data row1 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row1_col1" class="data row1 col1" >1</td>
+      <td id="T_588cb_row1_col2" class="data row1 col2" >0</td>
+      <td id="T_588cb_row1_col3" class="data row1 col3" >1684762200</td>
+      <td id="T_588cb_row1_col4" class="data row1 col4" >0</td>
+      <td id="T_588cb_row1_col5" class="data row1 col5" >2023-05-22 13:30:00</td>
+      <td id="T_588cb_row1_col6" class="data row1 col6" >173.979995</td>
+      <td id="T_588cb_row1_col7" class="data row1 col7" >174.470001</td>
+      <td id="T_588cb_row1_col8" class="data row1 col8" >173.649993</td>
+      <td id="T_588cb_row1_col9" class="data row1 col9" >174.369995</td>
+      <td id="T_588cb_row1_col10" class="data row1 col10" >3560273.0</td>
+    </tr>
+    <tr>
+      <td id="T_588cb_row2_col0" class="data row2 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row2_col1" class="data row2 col1" >1</td>
+      <td id="T_588cb_row2_col2" class="data row2 col2" >0</td>
+      <td id="T_588cb_row2_col3" class="data row2 col3" >1696339800</td>
+      <td id="T_588cb_row2_col4" class="data row2 col4" >0</td>
+      <td id="T_588cb_row2_col5" class="data row2 col5" >2023-10-03 13:30:00</td>
+      <td id="T_588cb_row2_col6" class="data row2 col6" >172.255004</td>
+      <td id="T_588cb_row2_col7" class="data row2 col7" >172.929992</td>
+      <td id="T_588cb_row2_col8" class="data row2 col8" >172.210006</td>
+      <td id="T_588cb_row2_col9" class="data row2 col9" >172.725006</td>
+      <td id="T_588cb_row2_col10" class="data row2 col10" >1900950.0</td>
+    </tr>
+    <tr>
+      <td id="T_588cb_row3_col0" class="data row3 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row3_col1" class="data row3 col1" >1</td>
+      <td id="T_588cb_row3_col2" class="data row3 col2" >0</td>
+      <td id="T_588cb_row3_col3" class="data row3 col3" >1706884200</td>
+      <td id="T_588cb_row3_col4" class="data row3 col4" >0</td>
+      <td id="T_588cb_row3_col5" class="data row3 col5" >2024-02-02 14:30:00</td>
+      <td id="T_588cb_row3_col6" class="data row3 col6" >179.86</td>
+      <td id="T_588cb_row3_col7" class="data row3 col7" >182.399993</td>
+      <td id="T_588cb_row3_col8" class="data row3 col8" >179.25</td>
+      <td id="T_588cb_row3_col9" class="data row3 col9" >181.547607</td>
+      <td id="T_588cb_row3_col10" class="data row3 col10" >12536914.0</td>
+    </tr>
+    <tr>
+      <td id="T_588cb_row4_col0" class="data row4 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row4_col1" class="data row4 col1" >1</td>
+      <td id="T_588cb_row4_col2" class="data row4 col2" >0</td>
+      <td id="T_588cb_row4_col3" class="data row4 col3" >1699018200</td>
+      <td id="T_588cb_row4_col4" class="data row4 col4" >0</td>
+      <td id="T_588cb_row4_col5" class="data row4 col5" >2023-11-03 13:30:00</td>
+      <td id="T_588cb_row4_col6" class="data row4 col6" >173.566604</td>
+      <td id="T_588cb_row4_col7" class="data row4 col7" >175.149993</td>
+      <td id="T_588cb_row4_col8" class="data row4 col8" >173.350006</td>
+      <td id="T_588cb_row4_col9" class="data row4 col9" >174.570007</td>
+      <td id="T_588cb_row4_col10" class="data row4 col10" >8634136.0</td>
+    </tr>
+    <tr>
+      <td id="T_588cb_row5_col0" class="data row5 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row5_col1" class="data row5 col1" >1</td>
+      <td id="T_588cb_row5_col2" class="data row5 col2" >0</td>
+      <td id="T_588cb_row5_col3" class="data row5 col3" >1676644200</td>
+      <td id="T_588cb_row5_col4" class="data row5 col4" >0</td>
+      <td id="T_588cb_row5_col5" class="data row5 col5" >2023-02-17 14:30:00</td>
+      <td id="T_588cb_row5_col6" class="data row5 col6" >152.350006</td>
+      <td id="T_588cb_row5_col7" class="data row5 col7" >152.990005</td>
+      <td id="T_588cb_row5_col8" class="data row5 col8" >152.179992</td>
+      <td id="T_588cb_row5_col9" class="data row5 col9" >152.971099</td>
+      <td id="T_588cb_row5_col10" class="data row5 col10" >4256498.0</td>
+    </tr>
+    <tr>
+      <td id="T_588cb_row6_col0" class="data row6 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row6_col1" class="data row6 col1" >1</td>
+      <td id="T_588cb_row6_col2" class="data row6 col2" >0</td>
+      <td id="T_588cb_row6_col3" class="data row6 col3" >1693315800</td>
+      <td id="T_588cb_row6_col4" class="data row6 col4" >0</td>
+      <td id="T_588cb_row6_col5" class="data row6 col5" >2023-08-29 13:30:00</td>
+      <td id="T_588cb_row6_col6" class="data row6 col6" >179.5997</td>
+      <td id="T_588cb_row6_col7" class="data row6 col7" >180.100006</td>
+      <td id="T_588cb_row6_col8" class="data row6 col8" >179.5</td>
+      <td id="T_588cb_row6_col9" class="data row6 col9" >180.0</td>
+      <td id="T_588cb_row6_col10" class="data row6 col10" >1938756.0</td>
+    </tr>
+    <tr>
+      <td id="T_588cb_row7_col0" class="data row7 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row7_col1" class="data row7 col1" >1</td>
+      <td id="T_588cb_row7_col2" class="data row7 col2" >0</td>
+      <td id="T_588cb_row7_col3" class="data row7 col3" >1704205800</td>
+      <td id="T_588cb_row7_col4" class="data row7 col4" >0</td>
+      <td id="T_588cb_row7_col5" class="data row7 col5" >2024-01-02 14:30:00</td>
+      <td id="T_588cb_row7_col6" class="data row7 col6" >187.149993</td>
+      <td id="T_588cb_row7_col7" class="data row7 col7" >188.440002</td>
+      <td id="T_588cb_row7_col8" class="data row7 col8" >186.350006</td>
+      <td id="T_588cb_row7_col9" class="data row7 col9" >187.729995</td>
+      <td id="T_588cb_row7_col10" class="data row7 col10" >7856580.0</td>
+    </tr>
+    <tr>
+      <td id="T_588cb_row8_col0" class="data row8 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row8_col1" class="data row8 col1" >1</td>
+      <td id="T_588cb_row8_col2" class="data row8 col2" >0</td>
+      <td id="T_588cb_row8_col3" class="data row8 col3" >1681997400</td>
+      <td id="T_588cb_row8_col4" class="data row8 col4" >0</td>
+      <td id="T_588cb_row8_col5" class="data row8 col5" >2023-04-20 13:30:00</td>
+      <td id="T_588cb_row8_col6" class="data row8 col6" >166.089996</td>
+      <td id="T_588cb_row8_col7" class="data row8 col7" >166.979995</td>
+      <td id="T_588cb_row8_col8" class="data row8 col8" >165.889999</td>
+      <td id="T_588cb_row8_col9" class="data row8 col9" >166.908996</td>
+      <td id="T_588cb_row8_col10" class="data row8 col10" >3143905.0</td>
+    </tr>
+    <tr>
+      <td id="T_588cb_row9_col0" class="data row9 col0" >0.9999999999999699</td>
+      <td id="T_588cb_row9_col1" class="data row9 col1" >1</td>
+      <td id="T_588cb_row9_col2" class="data row9 col2" >0</td>
+      <td id="T_588cb_row9_col3" class="data row9 col3" >1723210200</td>
+      <td id="T_588cb_row9_col4" class="data row9 col4" >0</td>
+      <td id="T_588cb_row9_col5" class="data row9 col5" >2024-08-09 13:30:00</td>
+      <td id="T_588cb_row9_col6" class="data row9 col6" >212.080001</td>
+      <td id="T_588cb_row9_col7" class="data row9 col7" >213.320007</td>
+      <td id="T_588cb_row9_col8" class="data row9 col8" >211.979995</td>
+      <td id="T_588cb_row9_col9" class="data row9 col9" >213.149993</td>
+      <td id="T_588cb_row9_col10" class="data row9 col10" >1983071.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+            
+                <div class="content-4d6it0 content-hide"><iframe srcdoc='
+        &lt;div style=&quot;background-color: white&quot;&gt;
+        &lt;script&gt;
+!function() {
+  let t = window.URL;
+  window.URL = function(n, e) {
+    if (typeof e === &quot;string&quot; &amp;&amp; e.startsWith(&quot;blob:&quot;)) {
+      return new URL(e);
+    } else {
+      return new t(n, e);
+    }
+  }
+}();
+&lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.3.3/webcomponents-lite.js&quot;&gt;&lt;/script&gt;
+        &lt;link rel=&quot;import&quot; href=&quot;https://raw.githubusercontent.com/PAIR-code/facets/1.0.0/facets-dist/facets-jupyter.html&quot; &gt;
+        &lt;facets-overview id=&quot;facets&quot; proto-input=&quot;CvUyChFXb3JzdCBQcmVkaWN0aW9ucxAKGt0ECg5hYnNvbHV0ZV9lcnJvchABGrIECg0IChAAGAEgAS0AAIA/EfL+/////+8/GeI8PCeQ3aA8IAAp8f7/////7z8x8f7/////7z858f7/////7z9CpAIaGwkiAAAAAAAQwBFEAAAAAAAIwCEAAAAAAAAAABobCUQAAAAAAAjAEUQAAAAAAADAIQAAAAAAAAAAGhsJRAAAAAAAAMARiAAAAAAA8L8hAAAAAAAAAAAaGwmIAAAAAADwvxEAAAAAAAAhvSEAAAAAAAAAABobCQAAAAAAACG9EfD+/////+8/IQAAAAAAAAAAGhsJ8P7/////7z8R8P7/////7z8hAAAAAAAAJEAaGwnw/v/////vPxF4////////PyEAAAAAAAAAABobCXj///////8/Ebz//////wdAIQAAAAAAAAAAGhsJvP//////B0ARvP//////D0AhAAAAAAAAAAAaGwm8//////8PQBHe//////8TQCEAAAAAAAAAACAAQsoBGhIJ8f7/////7z8R8f7/////7z8aEgnx/v/////vPxHx/v/////vPxoSCfH+/////+8/EfH+/////+8/GhIJ8f7/////7z8R8f7/////7z8aEgnx/v/////vPxHx/v/////vPxoSCfH+/////+8/EfH+/////+8/GhIJ8f7/////7z8R8f7/////7z8aEgnx/v/////vPxHx/v/////vPxoSCfH+/////+8/EfH+/////+8/GhIJ8f7/////7z8R8f7/////7z8gATIUCglkYXRhIHR5cGUaB2Zsb2F0NjQa1wQKCnByZWRpY3Rpb24QABqyBAoNCAoQABgBIAEtAACAPxEAAAAAAADwPxkAAAAAAAAAACAAKQAAAAAAAPA/MQAAAAAAAPA/OQAAAAAAAPA/QqQCGhsJAAAAAAAAEMARAAAAAAAACMAhAAAAAAAAAAAaGwkAAAAAAAAIwBEAAAAAAAAAwCEAAAAAAAAAABobCQAAAAAAAADAEQAAAAAAAPC/IQAAAAAAAAAAGhsJAAAAAAAA8L8RAAAAAAAAAAAhAAAAAAAAAAAaGwkAAAAAAAAAABEAAAAAAADwPyEAAAAAAAAAABobCQAAAAAAAPA/EQAAAAAAAPA/IQAAAAAAACRAGhsJAAAAAAAA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&quot; compare-mode=&quot;True&quot;&gt;&lt;/facets-overview&gt;
+        &lt;/div&gt;
+    ' width='100%' height='500' frameborder='0'></iframe></div>
+            
+                <div class="content-4d6it0 content-hide"><div style="max-height: 500px; overflow: scroll;"><style type="text/css">
+#T_3d66a table {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_3d66a  th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_3d66a  td {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+</style>
+<table id="T_3d66a" style="border-collapse:collapse">
+  <thead>
+    <tr>
+      <th class="blank level0" >&nbsp;</th>
+      <th id="T_3d66a_level0_col0" class="col_heading level0 col0" >Latest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_3d66a_level0_row0" class="row_heading level0 row0" >Model Rank</th>
+      <td id="T_3d66a_row0_col0" class="data row0 col0" >&gt; 0</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row1" class="row_heading level0 row1" >f1_score</th>
+      <td id="T_3d66a_row1_col0" class="data row1 col0" >0.97236</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row2" class="row_heading level0 row2" >accuracy_score</th>
+      <td id="T_3d66a_row2_col0" class="data row2 col0" >0.971239</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row3" class="row_heading level0 row3" >false_negatives</th>
+      <td id="T_3d66a_row3_col0" class="data row3 col0" >17</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row4" class="row_heading level0 row4" >false_positives</th>
+      <td id="T_3d66a_row4_col0" class="data row4 col0" >100</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row5" class="row_heading level0 row5" >log_loss</th>
+      <td id="T_3d66a_row5_col0" class="data row5 col0" >0.163678</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row6" class="row_heading level0 row6" >precision_score</th>
+      <td id="T_3d66a_row6_col0" class="data row6 col0" >0.953661</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row7" class="row_heading level0 row7" >recall_score</th>
+      <td id="T_3d66a_row7_col0" class="data row7 col0" >0.991807</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row8" class="row_heading level0 row8" >roc_auc</th>
+      <td id="T_3d66a_row8_col0" class="data row8 col0" >0.99241</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row9" class="row_heading level0 row9" >true_negatives</th>
+      <td id="T_3d66a_row9_col0" class="data row9 col0" >1893</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row10" class="row_heading level0 row10" >true_positives</th>
+      <td id="T_3d66a_row10_col0" class="data row10 col0" >2058</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row11" class="row_heading level0 row11" >Run Time</th>
+      <td id="T_3d66a_row11_col0" class="data row11 col0" >2024-10-06 20:53:46</td>
+    </tr>
+    <tr>
+      <th id="T_3d66a_level0_row12" class="row_heading level0 row12" >Run ID</th>
+      <td id="T_3d66a_row12_col0" class="data row12 col0" >8fb193a8bcde4cee971e56f63c563d7d</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+            
+                <div class="content-4d6it0 content-hide"><b>Best parameters:</b><br><pre># hardcoded parameters 
+class_weight: '{0: 1.02325381843144, 1: 0.9777795998688095}'
+
+# default parameters 
+cv: '5'
+error_score: nan
+estimator: Pipeline(steps=[('scaler', StandardScaler()), ('svc', SVC(probability=True))])
+estimator__memory: None
+estimator__scaler: StandardScaler()
+estimator__scaler__copy: 'True'
+estimator__scaler__with_mean: 'True'
+estimator__scaler__with_std: 'True'
+estimator__steps: '[(''scaler'', StandardScaler()), (''svc'', SVC(probability=True))]'
+estimator__svc: SVC(probability=True)
+estimator__svc__C: '1.0'
+estimator__svc__break_ties: 'False'
+estimator__svc__cache_size: '200'
+estimator__svc__class_weight: None
+estimator__svc__coef0: '0.0'
+estimator__svc__decision_function_shape: ovr
+estimator__svc__degree: '3'
+estimator__svc__gamma: scale
+estimator__svc__kernel: rbf
+estimator__svc__max_iter: '-1'
+estimator__svc__probability: 'True'
+estimator__svc__random_state: None
+estimator__svc__shrinking: 'True'
+estimator__svc__tol: '0.001'
+estimator__svc__verbose: 'False'
+estimator__verbose: 'False'
+n_jobs: '-1'
+param_grid: '{''svc__C'': [0.2, 10], ''svc__kernel'': [''rbf'', ''linear'']}'
+pre_dispatch: 2*n_jobs
+refit: 'True'
+return_train_score: 'False'
+scoring: accuracy
+verbose: '0'
+
+</pre><br><br> </div>
+            
+                <div class="content-4d6it0 content-hide"><pre>2024/10/06 20:56:18 E:\anaconda3\envs\rating_pred\lib\site-packages\_distutils_hack\__init__.py:32: Setuptools is replacing distutils. Support for replacing an already imported distutils is deprecated. In the future, this condition will fail. Register concerns at https://github.com/pypa/setuptools/issues/new?template=distutils-deprecation.yml
+2024/10/06 20:56:23 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:56:23 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:57:40 E:\anaconda3\envs\rating_pred\lib\site-packages\mlflow\types\utils.py:406: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+2024/10/06 20:57:40 E:\anaconda3\envs\rating_pred\lib\site-packages\mlflow\types\utils.py:406: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+2024/10/06 20:57:40 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:57:40 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:57:40 E:\anaconda3\envs\rating_pred\lib\site-packages\mlflow\pyfunc\__init__.py:2380: The `code_path` argument is replaced by `code_paths` and is deprecated as of MLflow version 2.12.0. This argument will be removed in a future release of MLflow.
+2024/10/06 20:57:41 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:57:41 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:57:43 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:57:43 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:57:43 E:\anaconda3\envs\rating_pred\lib\site-packages\mlflow\types\utils.py:406: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+2024/10/06 20:57:54 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:57:54 E:\anaconda3\envs\rating_pred\lib\site-packages\opentelemetry\sdk\trace\__init__.py:1254: Call to deprecated method __init__. (You should use InstrumentationScope) -- Deprecated since version 1.11.1.
+2024/10/06 20:57:54 E:\anaconda3\envs\rating_pred\lib\site-packages\mlflow\types\utils.py:406: Hint: Inferred schema contains integer column(s). Integer columns in Python cannot represent missing values. If your input data contains missing values at inference time, it will be encoded as floats and will cause a schema enforcement error. The best way to avoid this problem is to infer the model schema based on a realistic data sample (training dataset) that includes missing values. Alternatively, you can declare integer columns as doubles (float64) whenever these columns may have missing values. See `Handling Integers With Missing Values <https://www.mlflow.org/docs/latest/models.html#handling-integers-with-missing-values>`_ for more details.
+</pre></div>
+            
+                <div class="content-4d6it0 content-hide"><p><strong>MLflow Run ID:</strong> <code>8fb193a8bcde4cee971e56f63c563d7d</code></p> <p><strong>MLflow Model URI:</strong> <code>runs:/8fb193a8bcde4cee971e56f63c563d7d/train/model</code></p></div>
+            
+        </div>
+        <script>
+            function onclickTab(event) {
+                 const tablinks = document.getElementsByClassName("tablink-4d6it0");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace("active", "");
+                }
+                event.target.classList.add("active");
+
+                const tabId = event.target.id;
+                const tabContents = document.getElementsByClassName("content-4d6it0");
+                for (i = 0; i < tabContents.length; i++) {
+                    tabContents[i].className = tabContents[i].className.replace("content-active", "content-hide");
+                }
+                tabContents[tabId].classList.add("content-active");
+            }
+            (function() {
+                const buttonsContainer = document.getElementsByClassName("button-container-4d6it0")[0]
+                buttonsContainer.addEventListener("click", onclickTab);
+
+                const tablinks = document.getElementsByClassName("tablink-4d6it0");
+                tablinks[0].classList.add("active");
+                const tabContents = document.getElementsByClassName("content-4d6it0");
+                tabContents[0].classList.add("content-active");
+            })()
+        </script>
+   </body>
+</html>

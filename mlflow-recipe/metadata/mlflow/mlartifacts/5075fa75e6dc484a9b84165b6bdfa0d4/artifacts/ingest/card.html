@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ingest@trading-ml-flow</title>
+        <style>
+            h1.title {
+            color: #4287f5;
+            }
+            h2.step-title {
+                color : #4287f5;
+            }
+            .tab {
+                overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;
+            }
+
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+            .tabcontent {
+                display: block;
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+
+            .content-hide {
+                display: none;
+            }
+
+            .content-active {
+                display: block;
+            }
+            h3.section-title {
+                color: #57a8de;
+            }
+            .dataset-container {
+                width: max;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .stacktrace-container {
+                max-height: 300px;
+                overflow: auto;
+                display: flex;
+                flex-direction: column-reverse;
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+   <body>
+        <div class="tab">
+            <div class="button-container-9sobm1">
+                
+                    <button id=0 class="tablink-9sobm1">
+                        Data Profile
+                    </button>
+                
+                    <button id=1 class="tablink-9sobm1">
+                        Data Schema
+                    </button>
+                
+                    <button id=2 class="tablink-9sobm1">
+                        Data Preview
+                    </button>
+                
+                    <button id=3 class="tablink-9sobm1">
+                        Run Summary
+                    </button>
+                
+            </div>
+        </div>
+        <div class="tabcontent">
+            
+                <div class="content-9sobm1 content-hide"><iframe srcdoc='
+        &lt;div style=&quot;background-color: white&quot;&gt;
+        &lt;script&gt;
+!function() {
+  let t = window.URL;
+  window.URL = function(n, e) {
+    if (typeof e === &quot;string&quot; &amp;&amp; e.startsWith(&quot;blob:&quot;)) {
+      return new URL(e);
+    } else {
+      return new t(n, e);
+    }
+  }
+}();
+&lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.3.3/webcomponents-lite.js&quot;&gt;&lt;/script&gt;
+        &lt;link rel=&quot;import&quot; href=&quot;https://raw.githubusercontent.com/PAIR-code/facets/1.0.0/facets-dist/facets-jupyter.html&quot; &gt;
+        &lt;facets-overview id=&quot;facets&quot; proto-input=&quot;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&quot; compare-mode=&quot;True&quot;&gt;&lt;/facets-overview&gt;
+        &lt;/div&gt;
+    ' width='100%' height='500' frameborder='0'></iframe></div>
+            
+                <div class="content-9sobm1 content-hide"><div style="max-height: 500px; overflow: scroll;"><style type="text/css">
+#T_04d0a table {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_04d0a  th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_04d0a  td {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+</style>
+<table id="T_04d0a" style="border-collapse:collapse">
+  <thead>
+    <tr>
+      <th id="T_04d0a_level0_col0" class="col_heading level0 col0" >name</th>
+      <th id="T_04d0a_level0_col1" class="col_heading level0 col1" >type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_04d0a_row0_col0" class="data row0 col0" >Open</td>
+      <td id="T_04d0a_row0_col1" class="data row0 col1" >number</td>
+    </tr>
+    <tr>
+      <td id="T_04d0a_row1_col0" class="data row1 col0" >High</td>
+      <td id="T_04d0a_row1_col1" class="data row1 col1" >number</td>
+    </tr>
+    <tr>
+      <td id="T_04d0a_row2_col0" class="data row2 col0" >Low</td>
+      <td id="T_04d0a_row2_col1" class="data row2 col1" >number</td>
+    </tr>
+    <tr>
+      <td id="T_04d0a_row3_col0" class="data row3 col0" >Close</td>
+      <td id="T_04d0a_row3_col1" class="data row3 col1" >number</td>
+    </tr>
+    <tr>
+      <td id="T_04d0a_row4_col0" class="data row4 col0" >Volume</td>
+      <td id="T_04d0a_row4_col1" class="data row4 col1" >number</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+            
+                <div class="content-9sobm1 content-hide"><div style="max-height: 500px; overflow: scroll;"><style type="text/css">
+#T_2a402 table {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_2a402  th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_2a402  td {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+</style>
+<table id="T_2a402" style="border-collapse:collapse">
+  <thead>
+    <tr>
+      <th id="T_2a402_level0_col0" class="col_heading level0 col0" >Open</th>
+      <th id="T_2a402_level0_col1" class="col_heading level0 col1" >High</th>
+      <th id="T_2a402_level0_col2" class="col_heading level0 col2" >Low</th>
+      <th id="T_2a402_level0_col3" class="col_heading level0 col3" >Close</th>
+      <th id="T_2a402_level0_col4" class="col_heading level0 col4" >Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_2a402_row0_col0" class="data row0 col0" >153.774993</td>
+      <td id="T_2a402_row0_col1" class="data row0 col1" >154.269897</td>
+      <td id="T_2a402_row0_col2" class="data row0 col2" >153.559997</td>
+      <td id="T_2a402_row0_col3" class="data row0 col3" >153.699996</td>
+      <td id="T_2a402_row0_col4" class="data row0 col4" >2746104.0</td>
+    </tr>
+    <tr>
+      <td id="T_2a402_row1_col0" class="data row1 col0" >153.695007</td>
+      <td id="T_2a402_row1_col1" class="data row1 col1" >154.330001</td>
+      <td id="T_2a402_row1_col2" class="data row1 col2" >153.473999</td>
+      <td id="T_2a402_row1_col3" class="data row1 col3" >153.599594</td>
+      <td id="T_2a402_row1_col4" class="data row1 col4" >1338861.0</td>
+    </tr>
+    <tr>
+      <td id="T_2a402_row2_col0" class="data row2 col0" >153.600006</td>
+      <td id="T_2a402_row2_col1" class="data row2 col1" >153.830001</td>
+      <td id="T_2a402_row2_col2" class="data row2 col2" >153.169998</td>
+      <td id="T_2a402_row2_col3" class="data row2 col3" >153.214996</td>
+      <td id="T_2a402_row2_col4" class="data row2 col4" >992270.0</td>
+    </tr>
+    <tr>
+      <td id="T_2a402_row3_col0" class="data row3 col0" >153.224899</td>
+      <td id="T_2a402_row3_col1" class="data row3 col1" >153.679901</td>
+      <td id="T_2a402_row3_col2" class="data row3 col2" >153.115005</td>
+      <td id="T_2a402_row3_col3" class="data row3 col3" >153.462707</td>
+      <td id="T_2a402_row3_col4" class="data row3 col4" >911924.0</td>
+    </tr>
+    <tr>
+      <td id="T_2a402_row4_col0" class="data row4 col0" >153.479995</td>
+      <td id="T_2a402_row4_col1" class="data row4 col1" >153.649993</td>
+      <td id="T_2a402_row4_col2" class="data row4 col2" >152.949996</td>
+      <td id="T_2a402_row4_col3" class="data row4 col3" >153.029998</td>
+      <td id="T_2a402_row4_col4" class="data row4 col4" >1071129.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+            
+                <div class="content-9sobm1 content-hide"><p><strong>Number of rows ingested:</strong> <code>32016</code></p><p><strong>Dataset source location:</strong> <code>['E:\\MREDUL_NEURALFRAMEAI\\trading-ml-flow\\data\\5m_intraday_data.csv']</code></p><p><strong>Run duration (s)</strong>: 3.14</p><p><strong>Last updated:</strong> 2024-10-06 22:03:15</p></div>
+            
+        </div>
+        <script>
+            function onclickTab(event) {
+                 const tablinks = document.getElementsByClassName("tablink-9sobm1");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace("active", "");
+                }
+                event.target.classList.add("active");
+
+                const tabId = event.target.id;
+                const tabContents = document.getElementsByClassName("content-9sobm1");
+                for (i = 0; i < tabContents.length; i++) {
+                    tabContents[i].className = tabContents[i].className.replace("content-active", "content-hide");
+                }
+                tabContents[tabId].classList.add("content-active");
+            }
+            (function() {
+                const buttonsContainer = document.getElementsByClassName("button-container-9sobm1")[0]
+                buttonsContainer.addEventListener("click", onclickTab);
+
+                const tablinks = document.getElementsByClassName("tablink-9sobm1");
+                tablinks[0].classList.add("active");
+                const tabContents = document.getElementsByClassName("content-9sobm1");
+                tabContents[0].classList.add("content-active");
+            })()
+        </script>
+   </body>
+</html>

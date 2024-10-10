@@ -1,0 +1,37 @@
+artifact_path: train/model
+flavors:
+  python_function:
+    artifacts:
+      model_path:
+        path: artifacts\sk_model
+        uri: C:\Users\Asus\.mlflow\recipes\9f30e05efb44bb793ce1a5734ce476baf39254825bc4f3c01d43de4f19f7ad82\steps\train\outputs\sk_model
+    cloudpickle_version: 3.0.0
+    code: code
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.pyfunc.model
+    python_model: python_model.pkl
+    python_version: 3.10.15
+    streamable: false
+  sklearn:
+    code: code
+    pickled_model: artifacts\sk_model\model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.5.1
+mlflow_version: 2.14.3
+model_uuid: a43a43fe617d43b5a159e764448c743f
+run_id: 917e48c0395f45d5b5773a8cd0bd2b17
+signature:
+  inputs: '[{"type": "long", "name": "Timestamp", "required": true}, {"type": "long",
+    "name": "Gmtoffset", "required": true}, {"type": "string", "name": "Datetime",
+    "required": true}, {"type": "double", "name": "Open", "required": true}, {"type":
+    "double", "name": "High", "required": true}, {"type": "double", "name": "Low",
+    "required": true}, {"type": "double", "name": "Close", "required": true}, {"type":
+    "double", "name": "Volume", "required": true}]'
+  outputs: '[{"type": "double", "name": "predicted_score_0", "required": true}, {"type":
+    "double", "name": "predicted_score_1", "required": true}, {"type": "double", "name":
+    "predicted_score", "required": true}, {"type": "integer", "name": "predicted_label",
+    "required": true}]'
+  params: null
+utc_time_created: '2024-10-06 16:19:39.596378'

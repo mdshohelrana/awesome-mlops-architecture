@@ -1,0 +1,21 @@
+experiment:
+  name: "sklearn_regression_experiment"
+  tracking_uri: "sqlite:///metadata/mlflow/mlruns.db"
+  artifact_location: "./metadata/mlflow/mlartifacts"
+
+model_registry:
+  model_name: "grid_search_regression"
+
+INGEST_CONFIG:
+  # Assuming your data is stored in CSV files, similar to your original config
+  using: csv
+  location: "data/5m_intraday_data.csv"
+  loader_method: load_regression_data
+
+INGEST_SCORING_CONFIG:
+  using: csv
+  location: "data/5m_intraday_data.csv"
+
+PREDICT_OUTPUT_CONFIG:
+  using: parquet
+  location: "./data/predictions_output.parquet"

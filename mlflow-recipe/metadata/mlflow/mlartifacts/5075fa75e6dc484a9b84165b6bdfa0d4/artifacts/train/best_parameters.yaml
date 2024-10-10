@@ -1,0 +1,32 @@
+# default parameters 
+cv: '3'
+error_score: nan
+estimator: Pipeline(steps=[('scaler', StandardScaler()), ('svr', SVR())])
+estimator__memory: None
+estimator__scaler: StandardScaler()
+estimator__scaler__copy: 'True'
+estimator__scaler__with_mean: 'True'
+estimator__scaler__with_std: 'True'
+estimator__steps: '[(''scaler'', StandardScaler()), (''svr'', SVR())]'
+estimator__svr: SVR()
+estimator__svr__C: '1.0'
+estimator__svr__cache_size: '200'
+estimator__svr__coef0: '0.0'
+estimator__svr__degree: '3'
+estimator__svr__epsilon: '0.1'
+estimator__svr__gamma: scale
+estimator__svr__kernel: rbf
+estimator__svr__max_iter: '-1'
+estimator__svr__shrinking: 'True'
+estimator__svr__tol: '0.001'
+estimator__svr__verbose: 'False'
+estimator__verbose: 'False'
+n_jobs: '-1'
+param_grid: '{''svr__C'': [0.1, 1, 10], ''svr__kernel'': [''rbf'', ''linear''], ''svr__gamma'':
+  [''scale'', ''auto''], ''svr__epsilon'': [0.01, 0.1]}'
+pre_dispatch: 2*n_jobs
+refit: 'True'
+return_train_score: 'False'
+scoring: r2
+verbose: '3'
+

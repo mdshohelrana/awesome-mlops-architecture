@@ -1,0 +1,38 @@
+# hardcoded parameters 
+class_weight: '{0: 1.02325381843144, 1: 0.9777795998688095}'
+
+# default parameters 
+cv: '5'
+error_score: nan
+estimator: Pipeline(steps=[('scaler', StandardScaler()), ('svc', SVC(probability=True))])
+estimator__memory: None
+estimator__scaler: StandardScaler()
+estimator__scaler__copy: 'True'
+estimator__scaler__with_mean: 'True'
+estimator__scaler__with_std: 'True'
+estimator__steps: '[(''scaler'', StandardScaler()), (''svc'', SVC(probability=True))]'
+estimator__svc: SVC(probability=True)
+estimator__svc__C: '1.0'
+estimator__svc__break_ties: 'False'
+estimator__svc__cache_size: '200'
+estimator__svc__class_weight: None
+estimator__svc__coef0: '0.0'
+estimator__svc__decision_function_shape: ovr
+estimator__svc__degree: '3'
+estimator__svc__gamma: scale
+estimator__svc__kernel: rbf
+estimator__svc__max_iter: '-1'
+estimator__svc__probability: 'True'
+estimator__svc__random_state: None
+estimator__svc__shrinking: 'True'
+estimator__svc__tol: '0.001'
+estimator__svc__verbose: 'False'
+estimator__verbose: 'False'
+n_jobs: '-1'
+param_grid: '{''svc__C'': [0.2, 10], ''svc__kernel'': [''rbf'', ''linear'']}'
+pre_dispatch: 2*n_jobs
+refit: 'True'
+return_train_score: 'False'
+scoring: accuracy
+verbose: '0'
+
