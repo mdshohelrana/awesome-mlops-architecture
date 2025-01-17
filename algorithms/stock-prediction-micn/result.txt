@@ -1,0 +1,6 @@
+micn_Trading_regre_ftS_sl96_ll96_pl96_dm512_nh8_el2_dl1_df2048_ebtimeF_0  
+mse:0.06744847446680069, mae:0.1801033467054367
+
+micn_Trading_regre_ftS_sl96_ll96_pl96_dm512_nh8_el2_dl1_df2048_ebtimeF_0  
+mse:0.06744847446680069, mae:0.1801033467054367
+
